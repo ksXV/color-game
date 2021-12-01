@@ -19,7 +19,7 @@ const replaceColor = (color) => {
 };
 //This resets the game
 const popColors = (arr) => {
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < arr.length; i++) {
     arr.pop();
   }
 };
@@ -42,8 +42,6 @@ const intGame = () => {
       } else {
         won.innerHTML = "try again".toUpperCase();
         square[i].style.display = "none";
-        console.log(colors[randomNum]);
-        console.log(square[i].style.backgroundColor);
       }
     };
   }
@@ -57,5 +55,4 @@ tryAgainbtn.onclick = () => {
   tryAgainbtn.innerHTML = "new colors".toUpperCase();
   won.innerHTML = "";
 };
-console.log(colors);
 //Done :)
