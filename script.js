@@ -48,7 +48,6 @@ const intGame = () => {
 };
 intGame();
 tryAgainbtn.onclick = () => {
-  // alert("Working.104 :)");
   popColors(colors);
   intGame();
   firstSec[0].style = "background-color:rgb(89, 214, 214)";
