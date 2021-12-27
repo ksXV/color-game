@@ -1,7 +1,7 @@
 const square = document.getElementsByClassName("square");
 const tryAgainbtn = document.getElementById("tryAgainbtn");
 const won = document.getElementById("mySpan");
-const firstSec = document.getElementsByClassName("mainbar");
+const mainBar = document.getElementById("mainbar");
 let colors = [];
 //This makes the color
 const makeTheColor = () => {
@@ -19,8 +19,8 @@ const replaceColor = (color) => {
 };
 //This resets the game
 const popColors = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    arr.pop();
+  for (let i = 0; i <= 3; i++) {
+    arr.shift();
   }
 };
 //This plays the game
@@ -30,28 +30,29 @@ const intGame = () => {
     colors.push(makeTheColor());
     square[i].style = `background-color:${colors[i]};`;
     let text = String(colors[randomNum]);
-    document.getElementById("myH1").innerHTML = text.toUpperCase();
+    document.getElementById("myH1").innerText = text.toUpperCase();
     square[i].onclick = () => {
       if (square[i].style.backgroundColor === colors[randomNum]) {
-        won.innerHTML = "&#160;correct".toUpperCase();
+        won.innerText = "correct".toUpperCase();
         let color = square[i].style.backgroundColor;
         replaceColor(color);
         console.log(color);
-        firstSec[0].style.backgroundColor = color;
-        tryAgainbtn.innerHTML = "Play again".toUpperCase();
+        mainBar.style.backgroundColor = color;
+        tryAgainbtn.innerText = "Play again".toUpperCase();
       } else {
-        won.innerHTML = "try again".toUpperCase();
+        won.innerText = "try again".toUpperCase();
         square[i].style.display = "none";
       }
     };
   }
+  console.log(colors);
 };
 intGame();
 tryAgainbtn.onclick = () => {
   popColors(colors);
   intGame();
-  firstSec[0].style = "background-color:rgb(89, 214, 214)";
-  tryAgainbtn.innerHTML = "new colors".toUpperCase();
-  won.innerHTML = "";
+  mainBar.style = "background-color:rgb(89, 214, 214)";
+  tryAgainbtn.innerText = "new colors".toUpperCase();
+  won.innerText = "";
 };
 //Done :)
